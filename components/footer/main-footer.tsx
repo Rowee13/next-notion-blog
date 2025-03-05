@@ -10,7 +10,7 @@ const MainFooter = () => {
                     <p>Parrow Horrizon Studio - {new Date().getFullYear()}</p>
                     <div>
                         <Link
-                            href='https://github.com/Rowee13/phs-nextjs-starter/tree/master'
+                            href='https://github.com/Rowee13/next-notion-blog'
                             passHref
                             target='_blank'
                             rel='noopener noreferrer'

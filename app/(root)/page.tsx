@@ -6,13 +6,12 @@ export default function Home() {
                     <div className='text-center'>
                         <h1 className='text-balance text-5xl font-semibold tracking-tight text-foreground sm:text-7xl'>
                             <span className='bg-gradient-to-r from-primary to-cyan-500 bg-clip-text font-extrabold text-transparent'>
-                                PHS
+                                Next Notion
                             </span>{' '}
-                            NextJS Starter
+                            Blog
                         </h1>
                         <p className='mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8'>
-                            A starter project for PHS using NextJS, TailwindCSS,
-                            and TypeScript.
+                            A blog website built with NextJS and Notion API
                         </p>
                     </div>
                 </div>
