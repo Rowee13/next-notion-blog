@@ -1,4 +1,6 @@
+import typography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
+import tailwindcssAnimate from 'tailwindcss-animate'
 
 export default {
     darkMode: ['class'],
@@ -60,7 +62,27 @@ export default {
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)',
             },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        maxWidth: '100%',
+                        color: 'var(--tw-prose-body)',
+                        a: {
+                            color: 'var(--tw-prose-links)',
+                            '&:hover': {
+                                color: 'var(--tw-prose-links-hover)',
+                            },
+                        },
+                        code: {
+                            color: 'var(--tw-prose-code)',
+                            backgroundColor: 'var(--tw-prose-code-bg)',
+                            padding: '0.2em 0.4em',
+                            borderRadius: '0.25rem',
+                        },
+                    },
+                },
+            },
         },
     },
-    plugins: [require('tailwindcss-animate')],
+    plugins: [tailwindcssAnimate, typography],
 } satisfies Config
