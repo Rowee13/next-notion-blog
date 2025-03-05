@@ -28,6 +28,8 @@ export async function generateMetadata({
         }
     }
 
+    // console.log(`post data:${post}`)
+
     return {
         title: post.title,
         description: post.summary,

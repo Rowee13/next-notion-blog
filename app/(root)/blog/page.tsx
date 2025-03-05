@@ -14,6 +14,8 @@ export const revalidate = 3600 // Revalidate at most every hour
 const BlogPage = async () => {
     const posts = await getAllPosts()
 
+    // console.log(posts)
+
     return (
         <section>
             <div className='max-w-7xl mx-auto px-4 py-8 flex flex-col justify-center items-center'>
