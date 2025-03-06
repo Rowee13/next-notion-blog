@@ -1,3 +1,5 @@
+import Particles from '@/components/ui/particles'
+
 import MainFooter from '@/components/footer/main-footer'
 import MainHeader from '@/components/header/main-header'
 
@@ -11,6 +13,13 @@ export default function HomeLayout({
             <MainHeader />
             <main className='flex-grow'>{children}</main>
             <MainFooter />
+            <Particles
+                quantityDesktop={900}
+                quantityMobile={100}
+                ease={80}
+                color='#06b6d4'
+                refresh
+            />
         </div>
     )
 }
