@@ -8,6 +8,8 @@ export interface BlogPost {
     coverImage?: string
     tags: string[]
     content: string
+    author?: string
+    authorImage?: string
 }
 
 export interface BlogPostMetadata {
@@ -19,4 +21,6 @@ export interface BlogPostMetadata {
     summary: string
     coverImage?: string
     tags: string[]
+    author?: string
+    authorImage?: string
 }

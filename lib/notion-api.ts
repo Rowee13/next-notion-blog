@@ -53,6 +53,37 @@ const pageToPostMetadata = (page: PageObjectResponse): BlogPostMetadata => {
         PublishedDate?: { date?: { start: string } }
         Summary?: { rich_text?: { plain_text: string }[] }
         Tags?: { multi_select?: { name: string }[] }
+        Author?: {
+            type: string
+            people?: {
+                id: string
+                name?: string
+                avatar_url?: string
+                person?: { email?: string }
+            }[]
+        }
+    }
+
+    // Extract author information from Person property
+    let author = ''
+    let authorImage = ''
+
+    // Handle Author property if it exists
+    if (properties.Author) {
+        // Log the structure for debugging
+        console.log('Author property type:', properties.Author.type)
+
+        if (properties.Author.type === 'people' && properties.Author.people) {
+            const people = properties.Author.people
+            if (people.length > 0) {
+                const personData = people[0]
+                author = personData.name || ''
+                authorImage = personData.avatar_url || ''
+
+                // Log the person data for debugging
+                console.log('Person data:', JSON.stringify(personData, null, 2))
+            }
+        }
     }
 
     return {
@@ -69,6 +100,8 @@ const pageToPostMetadata = (page: PageObjectResponse): BlogPostMetadata => {
                   ? page.cover.file.url
                   : '',
         tags: properties.Tags?.multi_select?.map((tag) => tag.name) || [],
+        author,
+        authorImage,
     }
 }
 
@@ -89,6 +122,14 @@ export const getAllPosts = cache(async (): Promise<BlogPostMetadata[]> => {
                 },
             ],
         })
+
+        if (response.results.length > 0) {
+            const firstPage = response.results[0] as PageObjectResponse
+            console.log(
+                'First post Author property:',
+                JSON.stringify(firstPage.properties.Author, null, 2)
+            )
+        }
 
         const posts = response.results.map((page) =>
             pageToPostMetadata(page as PageObjectResponse)
@@ -122,6 +163,13 @@ export const getPostBySlug = cache(
             }
 
             const page = response.results[0] as PageObjectResponse
+
+            // Debug: Log the Author property structure
+            console.log(
+                'Author property:',
+                JSON.stringify(page.properties.Author, null, 2)
+            )
+
             const metadata = pageToPostMetadata(page)
 
             // Get page blocks and convert to markdown

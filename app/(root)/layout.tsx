@@ -17,7 +17,7 @@ export default function HomeLayout({
                 quantityDesktop={900}
                 quantityMobile={100}
                 ease={80}
-                color='#06b6d4'
+                color='#0cd5f8'
                 refresh
             />
         </div>

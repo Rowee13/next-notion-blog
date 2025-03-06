@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import BlogPostCard from '@/components/blog-post-card'
+import BlogPostCard from '@/components/ui/card/blog-post-card'
 
 import { getAllPosts } from '@/lib/notion-api'
 
@@ -14,7 +14,7 @@ export const revalidate = 3600 // Revalidate at most every hour
 const BlogPage = async () => {
     const posts = await getAllPosts()
 
-    // console.log(posts)
+    console.log(posts)
 
     return (
         <section>

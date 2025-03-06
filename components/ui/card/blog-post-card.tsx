@@ -20,7 +20,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 
     return (
         <Link href={`/blog/${post.slug}`} className='group'>
-            <article className='overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 transition-all duration-200 hover:shadow-md dark:hover:shadow-gray-800/50'>
+            <article className='overflow-hidden rounded-lg bg-background border border-gray-200 dark:border-gray-800 transition-all duration-200 dark:hover:border-gray-600 hover:shadow-lg dark:hover:shadow-gray-700/70'>
                 {post.coverImage && (
                     <div className='relative h-48 w-full overflow-hidden'>
                         <Image
@@ -45,9 +45,28 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
                     <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-2'>
                         {post.title}
                     </h3>
-                    <p className='text-sm text-gray-500 dark:text-gray-400 mb-4'>
-                        {formattedDate}
-                    </p>
+                    <div className='flex items-center justify-between mb-4'>
+                        {post.author && (
+                            <div className='flex items-center gap-2'>
+                                {post.authorImage && (
+                                    <div className='relative w-6 h-6 overflow-hidden rounded-full'>
+                                        <Image
+                                            src={post.authorImage}
+                                            alt={post.author}
+                                            fill
+                                            className='object-cover'
+                                        />
+                                    </div>
+                                )}
+                                <span className='text-xs text-gray-700 dark:text-gray-300'>
+                                    {post.author}
+                                </span>
+                            </div>
+                        )}
+                        <p className='text-xs text-gray-500 dark:text-gray-400'>
+                            {formattedDate}
+                        </p>
+                    </div>
                     <p className='text-gray-700 dark:text-gray-300 line-clamp-3'>
                         {post.summary}
                     </p>

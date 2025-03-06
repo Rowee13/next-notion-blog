@@ -98,6 +98,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </h1>
 
                 <div className='flex items-center gap-4 mb-6'>
+                    {post.author && (
+                        <div className='flex items-center gap-2'>
+                            {post.authorImage && (
+                                <div className='relative w-8 h-8 overflow-hidden rounded-full'>
+                                    <Image
+                                        src={post.authorImage}
+                                        alt={post.author}
+                                        fill
+                                        className='object-cover'
+                                    />
+                                </div>
+                            )}
+                            <span className='text-gray-700 dark:text-gray-300 font-medium'>
+                                {post.author}
+                            </span>
+                        </div>
+                    )}
+
                     <time
                         className='text-gray-600 dark:text-gray-400'
                         dateTime={post.publishedDate}
