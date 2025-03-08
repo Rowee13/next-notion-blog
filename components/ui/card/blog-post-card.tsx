@@ -20,8 +20,8 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 
     return (
         <Link href={`/blog/${post.slug}`} className='group'>
-            <article className='overflow-hidden rounded-lg bg-background border border-gray-200 dark:border-gray-800 transition-all duration-200 dark:hover:border-gray-600 hover:shadow-lg dark:hover:shadow-gray-700/70'>
-                {post.coverImage && (
+            <article className='overflow-hidden rounded-lg bg-background border border-gray-400 dark:border-gray-800 transition-all duration-200 dark:hover:border-gray-600 hover:shadow-lg dark:hover:shadow-gray-700/70'>
+                {post.coverImage ? (
                     <div className='relative h-48 w-full overflow-hidden'>
                         <Image
                             src={post.coverImage}
@@ -30,8 +30,10 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
                             className='object-cover transition-transform duration-200 group-hover:scale-105'
                         />
                     </div>
+                ) : (
+                    <div className='relative h-48 w-full overflow-hidden bg-foreground/10'></div>
                 )}
-                <div className='p-6'>
+                <div className='p-6 min-h-[225px]'>
                     <div className='flex items-center gap-2 mb-2'>
                         {post.tags.map((tag) => (
                             <span
