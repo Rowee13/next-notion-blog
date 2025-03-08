@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import DarkModeButton from '@/components/ui/buttons/dark-mode-btn'
+// import DarkModeButton from '@/components/ui/buttons/dark-mode-btn'
 
 import { NAV_LINKS } from '@/constant/nav-links'
 
@@ -31,9 +31,9 @@ const MainHeader = () => {
                                 <Link href={link.href}>{link.label}</Link>
                             </li>
                         ))}
-                        <li>
+                        {/* <li>
                             <DarkModeButton />
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
             </div>

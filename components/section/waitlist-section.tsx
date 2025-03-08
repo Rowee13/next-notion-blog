@@ -36,7 +36,7 @@ const WaitlistSection = () => {
                 href='https://nextjs-notion-waitlist.vercel.app/'
                 rel='noopener noreferrer'
                 target='_blank'
-                className='text-cyan-100 hover:text-cyan-500'
+                className='text-cyan-900  dark:text-cyan-100 dark:hover:text-cyan-500 hover:underline'
             >
                 Here&apos;s a reference for this feature.
             </Link>

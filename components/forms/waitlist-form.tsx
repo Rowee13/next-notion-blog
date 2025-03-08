@@ -55,7 +55,7 @@ export default function Form({
                     Icon={FaArrowRightLong}
                     onClick={handleSubmit}
                     iconPlacement='right'
-                    className='mt-2 w-full text-cyan-400 hover:text-cyan-500'
+                    className='mt-2 w-full text-cyan-900 hover:text-cyan-800 dark:text-cyan-400 dark:hover:text-cyan-500 bg-background hover:bg-background/50'
                     disabled={loading}
                 >
                     {loading ? 'Loading...' : 'Join Waitlist!'}
