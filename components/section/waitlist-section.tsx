@@ -47,7 +47,11 @@ const WaitlistSection = () => {
             const data = await response.json()
 
             if (response.ok) {
-                toast.success('Successfully joined the waitlist!')
+                toast.success(
+                    data.subscriber?.uniqueId
+                        ? `Successfully joined the waitlist! Your ID: ${data.subscriber.uniqueId.slice(0, 8)}...`
+                        : 'Successfully joined the waitlist!'
+                )
                 setName('')
                 setEmail('')
             } else {

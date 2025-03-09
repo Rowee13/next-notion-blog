@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 import { notion } from './notion'
 
 // Get the waitlist database ID from environment
@@ -9,6 +11,7 @@ export interface WaitlistSubscriber {
     name: string
     email: string
     createdAt: string
+    uniqueId: string
 }
 
 // Interface for subscription response
@@ -31,6 +34,8 @@ export async function addToWaitlist(
             throw new Error('Waitlist database ID is not configured')
         }
 
+        // Generate a unique ID
+        const uniqueId = uuidv4()
         const now = new Date().toISOString()
 
         // Create a new page in the waitlist database
@@ -56,6 +61,17 @@ export async function addToWaitlist(
                         start: now,
                     },
                 },
+                // Add ID as a rich_text property
+                // This will be added to the database even if the column doesn't exist yet
+                ID: {
+                    rich_text: [
+                        {
+                            text: {
+                                content: uniqueId,
+                            },
+                        },
+                    ],
+                },
             },
         })
 
@@ -66,6 +82,7 @@ export async function addToWaitlist(
                 name,
                 email,
                 createdAt: now,
+                uniqueId,
             },
         }
     } catch (error) {
