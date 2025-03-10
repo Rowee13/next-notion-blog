@@ -73,7 +73,7 @@ const WaitlistSection = () => {
             <Toaster position='top-center' />
             <motion.div
                 variants={itemVariants}
-                className='text-center w-9/12 flex flex-col items-center justify-center gap-4'
+                className='text-center w-full lg:w-9/12 flex flex-col items-center justify-center gap-4'
             >
                 <h3>
                     This is not just a blog website with Notion as CMS. <br />

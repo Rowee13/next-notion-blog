@@ -9,7 +9,7 @@ import { containerVariants, itemVariants } from '@/lib/animation-variants'
 export default function Home() {
     return (
         <section>
-            <div className='relative isolate px-6 pt-14 lg:px-8'>
+            <div className='relative isolate px-6 pt-14 lg:px-8 pb-20'>
                 <motion.div
                     className='mx-auto max-w-2xl flex flex-col items-center justify-center gap-12'
                     variants={containerVariants}
