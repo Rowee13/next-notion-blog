@@ -7,7 +7,7 @@ const notion = new Client({
     // Add a custom fetch function to intercept and log requests
     fetch: (url, options) => {
         // Log the URL for debugging
-        console.log('Notion API request URL:', url)
+        // console.log('Notion API request URL:', url)
         return fetch(url, options)
     },
 })

@@ -3,9 +3,12 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
+import { motion } from 'framer-motion'
 import { Toaster, toast } from 'react-hot-toast'
 
 import Form from '@/components/forms/waitlist-form'
+
+import { itemVariants } from '@/lib/animation-variants'
 
 const WaitlistSection = () => {
     const [name, setName] = useState('')
@@ -66,7 +69,10 @@ const WaitlistSection = () => {
     }
 
     return (
-        <div className='text-center w-9/12 flex flex-col items-center justify-center gap-4'>
+        <motion.div
+            variants={itemVariants}
+            className='text-center w-9/12 flex flex-col items-center justify-center gap-4'
+        >
             <Toaster position='top-center' />
             <h3>
                 This is not just a blog website with Notion as CMS. <br />
@@ -90,7 +96,7 @@ const WaitlistSection = () => {
                 loading={loading}
                 handleSubmit={handleSubmit}
             />
-        </div>
+        </motion.div>
     )
 }
 

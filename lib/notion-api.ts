@@ -13,25 +13,25 @@ const getDatabaseId = async (id: string): Promise<string> => {
     try {
         // First try to access it as a database
         await notion.databases.retrieve({ database_id: id })
-        console.log('Successfully accessed as database')
+        console.log('Successfully accessed database')
         return id
     } catch (error: unknown) {
         // If that fails, check if it's a page containing a database
         const notionError = error as { code?: string }
         if (notionError.code === 'object_not_found') {
             try {
-                console.log('Trying to access as a page...')
+                // console.log('Trying to access as a page...')
                 // Just check if we can access it as a page
                 await notion.pages.retrieve({ page_id: id })
-                console.log('Successfully accessed as page')
+                // console.log('Successfully accessed as page')
 
                 // If it's a page, we need to find databases within it
-                console.log(
-                    'Please check if the ID is for a page instead of a database'
-                )
-                console.log(
-                    'If it is a page, you need to create a database inside it and use that database ID'
-                )
+                // console.log(
+                //     'Please check if the ID is for a page instead of a database'
+                // )
+                // console.log(
+                //     'If it is a page, you need to create a database inside it and use that database ID'
+                // )
 
                 return id // Return the original ID for now
             } catch (pageError) {
@@ -71,7 +71,7 @@ const pageToPostMetadata = (page: PageObjectResponse): BlogPostMetadata => {
     // Handle Author property if it exists
     if (properties.Author) {
         // Log the structure for debugging
-        console.log('Author property type:', properties.Author.type)
+        // console.log('Author property type:', properties.Author.type)
 
         if (properties.Author.type === 'people' && properties.Author.people) {
             const people = properties.Author.people
@@ -81,7 +81,7 @@ const pageToPostMetadata = (page: PageObjectResponse): BlogPostMetadata => {
                 authorImage = personData.avatar_url || ''
 
                 // Log the person data for debugging
-                console.log('Person data:', JSON.stringify(personData, null, 2))
+                // console.log('Person data:', JSON.stringify(personData, null, 2))
             }
         }
     }
@@ -108,7 +108,7 @@ const pageToPostMetadata = (page: PageObjectResponse): BlogPostMetadata => {
 // Get all blog posts (metadata only)
 export const getAllPosts = cache(async (): Promise<BlogPostMetadata[]> => {
     try {
-        console.log('Using database ID:', RAW_DATABASE_ID)
+        // console.log('Using database ID:', RAW_DATABASE_ID)
 
         // Get the appropriate database ID
         const databaseId = await getDatabaseId(RAW_DATABASE_ID)
@@ -123,13 +123,13 @@ export const getAllPosts = cache(async (): Promise<BlogPostMetadata[]> => {
             ],
         })
 
-        if (response.results.length > 0) {
-            const firstPage = response.results[0] as PageObjectResponse
-            console.log(
-                'First post Author property:',
-                JSON.stringify(firstPage.properties.Author, null, 2)
-            )
-        }
+        // if (response.results.length > 0) {
+        //     const firstPage = response.results[0] as PageObjectResponse
+        //     console.log(
+        //         'First post Author property:',
+        //         JSON.stringify(firstPage.properties.Author, null, 2)
+        //     )
+        // }
 
         const posts = response.results.map((page) =>
             pageToPostMetadata(page as PageObjectResponse)
@@ -165,10 +165,10 @@ export const getPostBySlug = cache(
             const page = response.results[0] as PageObjectResponse
 
             // Debug: Log the Author property structure
-            console.log(
-                'Author property:',
-                JSON.stringify(page.properties.Author, null, 2)
-            )
+            // console.log(
+            //     'Author property:',
+            //     JSON.stringify(page.properties.Author, null, 2)
+            // )
 
             const metadata = pageToPostMetadata(page)
 
