@@ -69,34 +69,36 @@ const WaitlistSection = () => {
     }
 
     return (
-        <motion.div
-            variants={itemVariants}
-            className='text-center w-9/12 flex flex-col items-center justify-center gap-4'
-        >
+        <>
             <Toaster position='top-center' />
-            <h3>
-                This is not just a blog website with Notion as CMS. <br />
-                We also setup a waitlist feature saving your data in Notion.{' '}
-                <br />
-                How cool is that?
-            </h3>
-            <Link
-                href='https://nextjs-notion-waitlist.vercel.app/'
-                rel='noopener noreferrer'
-                target='_blank'
-                className='text-cyan-900  dark:text-cyan-100 dark:hover:text-cyan-500 hover:underline'
+            <motion.div
+                variants={itemVariants}
+                className='text-center w-9/12 flex flex-col items-center justify-center gap-4'
             >
-                Here&apos;s a reference for this feature.
-            </Link>
-            <Form
-                name={name}
-                email={email}
-                handleNameChange={handleNameChange}
-                handleEmailChange={handleEmailChange}
-                loading={loading}
-                handleSubmit={handleSubmit}
-            />
-        </motion.div>
+                <h3>
+                    This is not just a blog website with Notion as CMS. <br />
+                    We also setup a waitlist feature saving your data in Notion.{' '}
+                    <br />
+                    How cool is that?
+                </h3>
+                <Link
+                    href='https://nextjs-notion-waitlist.vercel.app/'
+                    rel='noopener noreferrer'
+                    target='_blank'
+                    className='text-cyan-900  dark:text-cyan-100 dark:hover:text-cyan-500 hover:underline'
+                >
+                    Here&apos;s a reference for this feature.
+                </Link>
+                <Form
+                    name={name}
+                    email={email}
+                    handleNameChange={handleNameChange}
+                    handleEmailChange={handleEmailChange}
+                    loading={loading}
+                    handleSubmit={handleSubmit}
+                />
+            </motion.div>
+        </>
     )
 }
 
