@@ -18,7 +18,7 @@ export default function Home() {
                 >
                     <motion.div className='text-center' variants={itemVariants}>
                         <h1 className='text-balance text-5xl font-semibold tracking-tight text-foreground sm:text-7xl'>
-                            <span className='bg-gradient-to-r from-primary to-cyan-500 bg-clip-text font-extrabold text-transparent'>
+                            <span className='bg-gradient-to-r from-primary to-yellow-600 bg-clip-text font-extrabold text-transparent'>
                                 Next Notion
                             </span>{' '}
                             Blog

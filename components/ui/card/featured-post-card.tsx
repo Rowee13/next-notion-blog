@@ -20,7 +20,7 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post }) => {
 
     return (
         <Link href={`/blog/${post.slug}`} className='group'>
-            <article className='overflow-hidden rounded-lg bg-background border border-gray-400 dark:border-gray-800 transition-all duration-200 dark:hover:border-gray-600 hover:shadow-lg dark:hover:shadow-gray-700/70'>
+            <article className='overflow-hidden rounded-lg bg-background border border-zinc-400 dark:border-zinc-700/80 transition-all duration-200 dark:hover:border-zinc-600 hover:shadow-lg dark:hover:shadow-zinc-700/70'>
                 {/* Featured Image - Larger and Full Width */}
                 {post.coverImage ? (
                     <div className='relative w-full h-80 sm:h-96 overflow-hidden'>

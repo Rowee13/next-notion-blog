@@ -13,7 +13,7 @@ const MainFooter = () => {
                             passHref
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='hover:text-cyan-500'
+                            className='hover:text-yellow-400'
                         >
                             Parrow Horrizon Studio
                         </Link>{' '}
@@ -26,7 +26,7 @@ const MainFooter = () => {
                             target='_blank'
                             rel='noopener noreferrer'
                         >
-                            <FaGithub className='w-5 h-5 hover:text-cyan-500' />
+                            <FaGithub className='w-5 h-5 hover:text-yellow-400' />
                         </Link>
                     </div>
                 </div>

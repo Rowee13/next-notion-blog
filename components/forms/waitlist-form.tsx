@@ -55,7 +55,7 @@ export default function Form({
                     Icon={FaArrowRightLong}
                     onClick={handleSubmit}
                     iconPlacement='right'
-                    className='mt-2 w-full text-cyan-900 hover:text-cyan-800 dark:text-cyan-400 dark:hover:text-cyan-500 bg-background hover:bg-background/50'
+                    className='mt-2 w-full text-zinc-900 hover:text-zinc-800 dark:text-yellow-400 dark:hover:text-yellow-500 bg-background hover:bg-background/50'
                     disabled={loading}
                 >
                     {loading ? 'Loading...' : 'Join Waitlist!'}
@@ -72,7 +72,7 @@ export default function Form({
                     rel='noopener noreferrer'
                     target='_blank'
                 >
-                    <FaGithub className='ml-0.5 h-5 w-5 transition-all duration-200 ease-linear hover:text-cyan-400' />
+                    <FaGithub className='ml-0.5 h-5 w-5 transition-all duration-200 ease-linear hover:text-yellow-400' />
                 </Link>
             </motion.div>
         </motion.div>

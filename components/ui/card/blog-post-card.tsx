@@ -20,7 +20,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 
     return (
         <Link href={`/blog/${post.slug}`} className='group'>
-            <article className='overflow-hidden rounded-lg bg-background border border-gray-400 dark:border-gray-800 transition-all duration-200 dark:hover:border-gray-600 hover:shadow-lg dark:hover:shadow-gray-700/70'>
+            <article className='overflow-hidden rounded-lg bg-background border border-zinc-400 dark:border-zinc-700/80 transition-all duration-200 dark:hover:border-zinc-600 hover:shadow-lg dark:hover:shadow-zinc-700/70'>
                 {post.coverImage ? (
                     <div className='relative h-48 w-full overflow-hidden'>
                         <Image
@@ -31,7 +31,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
                         />
                     </div>
                 ) : (
-                    <div className='relative h-48 w-full overflow-hidden bg-foreground/10'></div>
+                    <div className='relative h-48 w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900'></div>
                 )}
                 <div className='p-6 min-h-[225px]'>
                     <div className='flex items-center gap-2 mb-2'>

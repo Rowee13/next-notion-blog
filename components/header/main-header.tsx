@@ -14,17 +14,17 @@ const MainHeader = () => {
     return (
         <header>
             <div className='max-w-7xl mx-auto flex flex-row justify-between items-center px-4 py-8 z-50'>
-                <div className='flex flex-row items-center gap-4'>
-                    <Image
-                        src='/next-notion-logo.png'
-                        alt='logo'
-                        width={40}
-                        height={40}
-                    />
+                <div>
                     <Link
                         href='/'
-                        className='text-2xl lg:text-3xl font-[family-name:var(--font-bebas-neue)] font-bold'
+                        className='text-2xl lg:text-3xl font-[family-name:var(--font-bebas-neue)] font-bold flex flex-row items-center gap-4'
                     >
+                        <Image
+                            src='/yellow-theme/next-notion-logo-yellow.png'
+                            alt='logo'
+                            width={40}
+                            height={40}
+                        />
                         Next Notion Blog
                     </Link>
                 </div>
