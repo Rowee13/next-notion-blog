@@ -7,17 +7,18 @@ import { getAllPosts, getPostBySlug } from '@/lib/notion-api'
 
 export const revalidate = 3600 // Revalidate at most every hour
 
+type Params = Promise<{ slug: string }>
+
 interface BlogPostPageProps {
-    params: {
-        slug: string
-    }
+    params: Params
 }
 
 export async function generateMetadata({
     params,
 }: BlogPostPageProps): Promise<Metadata> {
-    const resolvedParams = await params
-    const post = await getPostBySlug(resolvedParams.slug)
+    const { slug } = await params
+
+    const post = await getPostBySlug(slug)
 
     if (!post) {
         return {
@@ -42,7 +43,7 @@ export async function generateMetadata({
     }
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
     const posts = await getAllPosts()
 
     return posts.map((post) => ({
@@ -51,8 +52,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-    const resolvedParams = await params
-    const post = await getPostBySlug(resolvedParams.slug)
+    const { slug } = await params
+    const post = await getPostBySlug(slug)
 
     if (!post) {
         notFound()

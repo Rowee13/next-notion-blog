@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 
 interface LoadingBarProps {
     color?: string
@@ -9,7 +9,7 @@ interface LoadingBarProps {
     minDuration?: number
 }
 
-export default function LoadingBar({
+function LoadingBarContent({
     color = '#3b82f6', // Default blue color
     height = 3,
     minDuration = 800, // Minimum duration for the loading animation
@@ -149,5 +149,14 @@ export default function LoadingBar({
                 }}
             />
         </div>
+    )
+}
+
+// Export the component wrapped in Suspense
+export default function LoadingBar(props: LoadingBarProps) {
+    return (
+        <Suspense fallback={null}>
+            <LoadingBarContent {...props} />
+        </Suspense>
     )
 }
